@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="header">
+    <h1>📚 Student Management</h1>
+    <a routerLink="/add" class="btn btn-primary">+ Add Student</a>
+  </div>
+
+  <div class="table-wrapper" *ngIf="students.length > 0; else noData">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ student.firstName }}</td>
+          <td>{{ student.lastName }}</td>
+          <td>{{ student.email }}</td>
+          <td class="actions">
+            <a [routerLink]="['/edit', student.id]" class="btn btn-edit">Edit</a>
+            <button (click)="deleteStudent(student.id!)" class="btn btn-delete">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noData>
+    <div class="empty-state">
+      <p>No students found. Click <strong>"+ Add Student"</strong> to get started.</p>
+    </div>
+  </ng-template>
+</div>
