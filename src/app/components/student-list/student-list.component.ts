@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { StudentService } from '../../services/student.service';
 import { Student } from '../../models/student.model';
@@ -7,7 +6,7 @@ import { Student } from '../../models/student.model';
 @Component({
     selector: 'app-student-list',
     standalone: true,
-    imports: [CommonModule, RouterModule],
+    imports: [RouterModule],
     templateUrl: './student-list.component.html',
     styleUrl: './student-list.component.css'
 })
